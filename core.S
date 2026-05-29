@@ -5,18 +5,7 @@
 .thumb
 
 // global mem locations
-.global vtable
 .global reset_handler
-
-/* 
- * vector table
- * includes only RAM and reset handler
- */
- .type vtable, %object
- vtable: 
-    .word _estack
-    .word reset_handler
-.size vtable, .-vtable
 
 // reset handler
 .type reset_handler, %function
