@@ -5,10 +5,10 @@ A bare metal operating system built from scratch on the STM32F103C8T6 (Blue Pill
 ## Learning
 - Bare metal ARM programming
 - GDB debugging over SWD
-- ARM ([Cortex-M3](https://www.st.com/resource/en/reference_manual/rm0008-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf#page=49.32) memory map and boot sequence 
+- ARM ([Cortex-M3](https://www.st.com/resource/en/reference_manual/rm0008-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf#page=49.32)) memory map and boot sequence 
 
 ## Hardware
-- STM32F103C8T6 (Blue Pill) — Cortex-M3, 64K flash, 20K RAM
+- STM32F103C8T6 (Blue Pill) - Cortex-M3, 64K flash, 20K RAM
 - ST-Link V2 — SWD flashing and debugging
 - CP2102 USB-UART — serial output
 
