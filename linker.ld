@@ -67,8 +67,6 @@ SECTIONS
         _ebss = .;
         __bss_end__ = _ebss;
         . = ALIGN(4);
-        end = .;
-        __end__ = .;
     }>SRAM
 
     /* 
@@ -81,5 +79,5 @@ SECTIONS
         . = . + _Min_Leftover_RAM;
         . = ALIGN(4);
         _esystem_ram = .;
-    }
+    }>SRAM
 }

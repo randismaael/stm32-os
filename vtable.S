@@ -16,6 +16,7 @@
  * "w" — writable
  * %progbits — section contains actual data/code
  */
+ .section .isr_vector, "a", %progbits
 .type vtable, %object
 vtable:
     .word _estack
@@ -98,7 +99,7 @@ vtable:
     .weak PVD_interrupt_handler
     .thumb_set PVD_interrupt_handler, default_interrupt_handler
     .weak tamper_interrupt_handler
-    .thumb_set tampter_interrupt_handler, default_interrupt_handler
+    .thumb_set tamper_interrupt_handler, default_interrupt_handler
     .weak RTC_interrupt_handler
     .thumb_set RTC_interrupt_handler, default_interrupt_handler
     .weak flash_interrupt_handler
@@ -156,7 +157,7 @@ vtable:
     .weak I2C2EV_interrupt_handler
     .thumb_set I2C2EV_interrupt_handler, default_interrupt_handler
     .weak I2C2ER_interrupt_handler
-    .thumb_set I2C2ER_interrupt_hanlder, default_interrupt_handler
+    .thumb_set I2C2ER_interrupt_handler, default_interrupt_handler
     .weak SPI1_interrupt_handler
     .thumb_set SPI1_interrupt_handler, default_interrupt_handler
     .weak SPI2_interrupt_handler
@@ -178,9 +179,11 @@ vtable:
 /*
  * Default interrupt handler in the case an unexpected interrupt occurs.
  */
+.section .text.default_interrupt_handler, "ax", %progbits
+.type default_interrupt_handler, %function
 default_interrupt_handler:
     default_interrupt_loop:
-    B default_interrupt_loop
+        B default_interrupt_loop
 .size default_interrupt_handler, .-default_interrupt_handler
 
 
