@@ -18,10 +18,20 @@ A bare metal operating system built from scratch on the STM32F103C8T6 (Blue Pill
 - `st-util` — GDB server over ST-Link
 - STM32CubeProgrammer — flashing
 
+## Project Structure
+```
+.
+├── core.S      # reset handler — copies .data, zeroes .bss, calls main
+├── vtable.S    # vector table — interrupt handlers, weak aliases to default
+├── linker.ld   # memory map — FLASH/SRAM regions, section placement
+├── main.c      # application entry point
+└── Makefile    # build system
+```
+
 ## Build
 ```bash
-arm-none-eabi-as -mcpu=cortex-m3 -mthumb core.S -o core.o
-arm-none-eabi-gcc core.o -mcpu=cortex-m3 -mthumb --specs=nosys.specs -nostdlib -lgcc -T./linker.ld -o main.elf
+make
+make clean
 ```
 
 ## Debug
@@ -37,4 +47,4 @@ arm-none-eabi-gdb main.elf
 ```
 
 ## Progress
-- [x] Part 1 — Vector table and reset handler in assembly
+- [x] Part 1 — Vector table, reset handler, linker script, verified boot via GDB
