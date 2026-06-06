@@ -41,7 +41,8 @@ st-util
 
 # Terminal 2
 arm-none-eabi-gdb main.elf
-(gdb) target extended-remote :4242
+(gdb) target remote :4242
+(gdb) monitor reset halt
 (gdb) load
 (gdb) continue
 ```
