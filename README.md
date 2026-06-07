@@ -62,3 +62,7 @@ Boot sequence verified via GDB: `val` incrementing in real time, read directly f
 ### Part 2 — GPIO
 Bare metal GPIO: Onboard LED blinking at ~1Hz via direct GPIO register access, no HAL
 ![LED blink](media/led_blinking.gif)
+
+### Part 3 — SysTick Timer
+Replaced NOP delay loop with interrupt-driven SysTick timer for precise 1ms ticks. Demonstrated with SOS morse code blink pattern:
+![SOS blink](media/SOS_blinking.gif)
