@@ -1,11 +1,15 @@
 # STM32 Bare Metal OS
+A bare metal operating system built from scratch on the STM32F103C8T6 (Blue Pill). Written in ARM assembly and C.
 
-A bare metal operating system built from scratch on the STM32F103C8T6 (Blue Pill) without HAL or any abstraction libraries. Written in ARM assembly and C.
+## What This Is
+Starting from power-on, the CPU reads the vector table at the start of flash (`0x08000000`), loads the stack pointer, and jumps to the reset handler. The reset handler copies initialized variables from flash to RAM, zeroes the BSS section, then calls `main()`. GPIO and an interrupt-driven SysTick timer are implemented for precise timing. No HAL or abstraction libraries, every register is accessed directly.
 
 ## Learning
-- Bare metal ARM programming
+- Bare metal ARM programming and direct register access
+- ARM [Cortex-M3](https://www.st.com/resource/en/reference_manual/rm0008-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf#page=49.32) boot sequence and memory map
+- Linker scripts, ELF sections, and memory placement
+- Interrupt-driven programming with SysTick and NVIC
 - GDB debugging over SWD
-- ARM ([Cortex-M3](https://www.st.com/resource/en/reference_manual/rm0008-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf#page=49.32)) memory map and boot sequence 
 
 ## Resources
 - [Vivonomicon bare metal STM32 series](https://vivonomicon.com/2018/04/20/bare-metal-stm32-programming-part-1-hello-arm/)
@@ -27,12 +31,26 @@ A bare metal operating system built from scratch on the STM32F103C8T6 (Blue Pill
 
 ## Project Structure
 ```
+## Project Structure
+```
 .
-├── core.S      # reset handler — copies .data, zeroes .bss, calls main
-├── vtable.S    # vector table — interrupt handlers, weak aliases to default
-├── linker.ld   # memory map — FLASH/SRAM regions, section placement
-├── main.c      # application entry point
-└── Makefile    # build system
+├── device_headers/
+│   ├── core_cm3.h          # ARM Cortex-M3 core definitions
+│   ├── stm32f103xb.h       # STM32F103 peripheral register definitions
+│   ├── stm32f1xx.h         # STM32F1 family definitions
+│   ├── system_stm32f1xx.h  # system configuration
+│   ├── cmsis_compiler.h    # compiler abstraction
+│   ├── cmsis_gcc.h         # GCC specific CMSIS definitions
+│   └── cmsis_version.h     # CMSIS version information
+├── media/                  # demo GIFs and screenshots
+├── core.S                  # reset handler — copies .data, zeroes .bss, calls main
+├── vtable.S                # vector table — interrupt handlers, weak aliases to default
+├── interrupts.c            # SysTick handler and interrupt service routines
+├── interrupts.h            # interrupt declarations and tick counter
+├── linker.ld               # memory map — FLASH/SRAM regions, section placement
+├── main.c                  # application entry point
+├── main.h                  # pin definitions and includes
+└── Makefile                # build system
 ```
 
 ## Build
