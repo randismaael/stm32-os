@@ -1,6 +1,8 @@
 # STM32 Bare Metal OS
 
-A bare metal operating system built from scratch on the STM32F103C8T6 (Blue Pill) without HAL or any abstraction libraries. Written in ARM assembly and C. Initialization follows the Vivonomicon bare metal STM32 series. Linker script tutorial from [csrohit](https://medium.com/@csrohit/writing-linker-script-for-stm32-arm-cortex-m3-%EF%B8%8F-fdc2acaaddcc)
+A bare metal operating system built from scratch on the STM32F103C8T6 (Blue Pill) without HAL or any abstraction libraries. Written in ARM assembly and C. Initialization follows the Vivonomicon bare metal STM32 series. 
+Linker script tutorial from [csrohit](https://medium.com/@csrohit/writing-linker-script-for-stm32-arm-cortex-m3-%EF%B8%8F-fdc2acaaddcc)
+Header files from this [github](https://github.com/modm-io/cmsis-header-stm32/tree/master).
 
 ## Learning
 - Bare metal ARM programming
@@ -47,5 +49,11 @@ arm-none-eabi-gdb main.elf
 (gdb) continue
 ```
 
-## Progress
-- [x] Part 1 — Vector table, reset handler, linker script, verified boot via GDB
+## Progress & Demo
+### Part 1 — Vector table, reset handler, linker script
+Boot sequence verified via GDB: `val` incrementing in real time, read directly from RAM over SWD:
+![GDB val counting](media/gdb_val_counting.png)
+
+### Part 2 — GPIO
+Bare metal GPIO: Onboard LED blinking at ~1Hz via direct GPIO register access, no HAL
+![LED blink](media/blink.gif)
