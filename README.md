@@ -31,8 +31,6 @@ Starting from power-on, the CPU reads the vector table at the start of flash (`0
 
 ## Project Structure
 ```
-## Project Structure
-```
 .
 ├── device_headers/
 │   ├── core_cm3.h          # ARM Cortex-M3 core definitions
