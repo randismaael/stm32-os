@@ -56,4 +56,4 @@ Boot sequence verified via GDB: `val` incrementing in real time, read directly f
 
 ### Part 2 — GPIO
 Bare metal GPIO: Onboard LED blinking at ~1Hz via direct GPIO register access, no HAL
-![LED blink](media/blink.gif)
+![LED blink](media/led_blinking.gif)
