@@ -1,13 +1,18 @@
 # STM32 Bare Metal OS
 
-A bare metal operating system built from scratch on the STM32F103C8T6 (Blue Pill) without HAL or any abstraction libraries. Written in ARM assembly and C. Initialization follows the Vivonomicon bare metal STM32 series. 
-Linker script tutorial from [csrohit](https://medium.com/@csrohit/writing-linker-script-for-stm32-arm-cortex-m3-%EF%B8%8F-fdc2acaaddcc)
-Header files from this [github](https://github.com/modm-io/cmsis-header-stm32/tree/master).
+A bare metal operating system built from scratch on the STM32F103C8T6 (Blue Pill) without HAL or any abstraction libraries. Written in ARM assembly and C.
 
 ## Learning
 - Bare metal ARM programming
 - GDB debugging over SWD
 - ARM ([Cortex-M3](https://www.st.com/resource/en/reference_manual/rm0008-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf#page=49.32)) memory map and boot sequence 
+
+## Resources
+- [Vivonomicon bare metal STM32 series](https://vivonomicon.com/2018/04/20/bare-metal-stm32-programming-part-1-hello-arm/)
+- [RM0008 — STM32F103 reference manual](https://www.st.com/resource/en/reference_manual/rm0008-stmicroelectronics.pdf)
+- [STM32F103C8 datasheet](https://www.st.com/resource/en/datasheet/stm32f103c8.pdf)
+- [csrohit — linker script tutorial](https://medium.com/@csrohit/writing-linker-script-for-stm32-arm-cortex-m3-%EF%B8%8F-fdc2acaaddcc)
+- [CMSIS header files](https://github.com/modm-io/cmsis-header-stm32/tree/master)
 
 ## Hardware
 - STM32F103C8T6 (Blue Pill) - Cortex-M3, 64K flash, 20K RAM
