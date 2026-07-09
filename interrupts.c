@@ -11,3 +11,8 @@ void SysTick_handler(void)
 {
     ticks++;
 }
+
+void USART1_interrupt_handler(void)
+{
+    
+}

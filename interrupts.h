@@ -6,5 +6,6 @@
 extern volatile uint32_t ticks;
 
 void SysTick_handler(void);
+void USART1_interrupt_handler(void);
 
 #endif

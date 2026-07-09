@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "device_headers/stm32f103xb.h"
+#include "device_headers/core_cm3.h"
 
 // uncomment when u get button
 // #define BUTTON_PIN (1)

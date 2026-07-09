@@ -9,7 +9,7 @@ CFLAGS = -mcpu=cortex-m3 -mthumb -Wall -g --specs=nosys.specs -nostdlib -lgcc
 
 # output file
 TARGET = main
-SRCS = core.S vtable.S main.c
+SRCS = init/core.S init/vtable.S main.c interrupts.c drivers.c
 OBJS = $(SRCS:.S=.o)
 OBJS := $(OBJS:.c=.o)
 
@@ -17,7 +17,7 @@ all: $(TARGET).elf $(TARGET).bin
 
 #link all .o files to .elf
 $(TARGET).elf: $(OBJS)
-	$(CC) $(CFLAGS) -T./linker.ld $^ -o $@
+	$(CC) $(CFLAGS) -T./init/linker.ld $^ -o $@
 
 $(TARGET).bin: $(TARGET).elf
 	$(OC) -S -O binary $< $@
