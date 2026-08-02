@@ -33,9 +33,12 @@ int main(void)
     SysTick_config();
     uart_config();
 
+    
+
     while (1)
     {
-        uart_print("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        char c = uart_receive();
+        uart_transmit(c);
     }
 
     return 0;
