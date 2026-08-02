@@ -85,4 +85,4 @@ Replaced NOP delay loop with interrupt-driven SysTick timer for precise 1ms tick
 
 ### Part 4 — UART
 Polling-based UART TX and RX via USART1. PA9 (TX) configured as alternate function push-pull, PA10 (RX) as input with pull-up. Verified with CP2102 USB-UART adapter. Alphabet streaming over TX and bidirectional echo server over RX:
-![UART echo](media/uart_echo.gif)
+![UART echo](media/uart_echo.[png])
